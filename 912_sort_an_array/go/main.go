@@ -14,44 +14,46 @@ func main() {
 }
 
 func MergeSort(arr []int) []int {
-	if len(arr) > 1 {
-		mid := len(arr) / 2
+	if len(arr) <= 1 {
+		return arr
+	}
 
-		// Copy arr, and slice it.
-		// this way, even if arr modified, leftArr and rightArr stay the same.
-		tempArr := make([]int, len(arr))
-		copy(tempArr, arr)
+	mid := len(arr) / 2
 
-		leftArr := tempArr[:mid]
-		rightArr := tempArr[mid:]
+	// Copy arr, and slice it.
+	// this way, even if arr modified, leftArr and rightArr stay the same.
+	tempArr := make([]int, len(arr))
+	copy(tempArr, arr)
 
-		leftArr = MergeSort(leftArr)
-		rightArr = MergeSort(rightArr)
+	leftArr := tempArr[:mid]
+	rightArr := tempArr[mid:]
 
-		i, j, k := 0, 0, 0
+	leftArr = MergeSort(leftArr)
+	rightArr = MergeSort(rightArr)
 
-		for i < len(leftArr) && j < len(rightArr) {
-			if leftArr[i] < rightArr[j] {
-				arr[k] = leftArr[i]
-				i++
-			} else {
-				arr[k] = rightArr[j]
-				j++
-			}
-			k++
-		}
+	i, j, k := 0, 0, 0
 
-		for i < len(leftArr) {
+	for i < len(leftArr) && j < len(rightArr) {
+		if leftArr[i] < rightArr[j] {
 			arr[k] = leftArr[i]
 			i++
-			k++
-		}
-
-		for j < len(rightArr) {
+		} else {
 			arr[k] = rightArr[j]
 			j++
-			k++
 		}
+		k++
+	}
+
+	for i < len(leftArr) {
+		arr[k] = leftArr[i]
+		i++
+		k++
+	}
+
+	for j < len(rightArr) {
+		arr[k] = rightArr[j]
+		j++
+		k++
 	}
 
 	return arr
