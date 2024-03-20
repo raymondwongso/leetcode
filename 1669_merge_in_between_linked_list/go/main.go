@@ -7,6 +7,9 @@ type ListNode struct {
 	Next *ListNode
 }
 
+// Submission result: 86ms (92.44%) | 7.11MB (87.40%)
+// Time complexity: O(m+n)
+// Space complexity: O(1)
 func main() {
 	// list1 := &ListNode{Val: 0, Next: &ListNode{Val: 1, Next: &ListNode{Val: 2, Next: &ListNode{Val: 3, Next: &ListNode{Val: 4, Next: &ListNode{Val: 5, Next: &ListNode{Val: 6}}}}}}}
 	// list2 := &ListNode{Val: 100, Next: &ListNode{Val: 101, Next: &ListNode{Val: 102, Next: &ListNode{Val: 103}}}}
@@ -18,7 +21,6 @@ func main() {
 	printListNode(res)
 }
 
-// Submission result: 86ms (92.44%) | 7.11MB (87.40%)
 func mergeInBetween(list1 *ListNode, a int, b int, list2 *ListNode) *ListNode {
 	i := 0
 	rootList1 := list1

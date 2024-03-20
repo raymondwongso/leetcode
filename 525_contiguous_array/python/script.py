@@ -1,6 +1,8 @@
 from typing import List
 
 # Submission result: 604ms (89.21%) | 22.22MB (25.49%)
+# Time complexity: O(n)
+# Space complexity: O(n)
 class Solution:
   def findMaxLength(self, nums: List[int]) -> int:
     h = {0: -1}

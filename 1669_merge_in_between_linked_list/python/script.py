@@ -12,6 +12,8 @@ def printlistnode(list: ListNode):
     printlistnode(list.next)
 
 # Submission result: 193ms (54.05%) | 21.08MB (70.92%)
+# Time complexity: O(m+n)
+# Space complexity: O(1)
 def mergeInBetween(list1: ListNode, a: int, b: int, list2: ListNode) -> ListNode:
   i = 0
   root = list1

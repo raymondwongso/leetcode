@@ -5,6 +5,8 @@ import (
 )
 
 // Submission result: 75ms (91.78%) | 6.75MB (99.93%)
+// Time complexity: O(n)
+// Space complexity: O(n)
 func main() {
 	nums := []int{0, 1, 0}
 	fmt.Println(findMaxLength(nums))
