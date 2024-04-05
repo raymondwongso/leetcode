@@ -1,21 +1,34 @@
-from collections import deque
+from typing import List
+
 
 class Solution:
-  def maxDepth(self, s: str) -> int:
-    stack = deque()
+    def maximalNetworkRank(self, n: int, roads: List[List[int]]) -> int:
+        g=[[False]*n for _ in range(n)]
+        for x,y in roads:
+            g[x][y]=g[y][x]=True
 
-    m = 0
+        ans=0
+        for i in range(n):
+            for j in range(n):
+                if i==j:
+                    continue
 
-    for c in s:
-      if c == "(":
-        stack.append(c)
-      elif c == ")":
-        m = max(m, len(stack))
-        stack.pop()
+                cur=0
+                for k in range(n):
+                    if k!=i and k!=j:
+                        if g[i][k]:
+                            cur+=1
 
-    return m
+                        if g[j][k]:
+                             cur+=1
 
+                if g[i][j]:
+                    cur+=1
+
+                ans=max(cur,ans)
+
+        return ans        
 
 
 sol = Solution()
-print(sol.maxDepth("8*((1*(5+6))*(8/6))"))
+print(sol.maximalNetworkRank(4, [[0,1],[0,3],[1,2],[1,3]]))
