@@ -2,17 +2,13 @@ package main
 
 import "fmt"
 
+// https://leetcode.com/problems/longest-palindromic-substring/
 func main() {
-	fmt.Println("https://leetcode.com/problems/longest-palindromic-substring/")
-
-	// change input for your testcases.
-	s := "bacab"
-
-	fmt.Printf("Input: %+v\n", s)
-	fmt.Printf("Longest palindromic substring: %+v\n", LongestPalindromicSubstring(s))
+	input := "bacab"
+	fmt.Printf("%s\n", longestPalindromicSubstring(input))
 }
 
-func LongestPalindromicSubstring(s string) string {
+func longestPalindromicSubstring(s string) string {
 	ln := len(s)
 
 	if ln == 1 {
@@ -26,13 +22,13 @@ func LongestPalindromicSubstring(s string) string {
 		arr[i] = t
 	}
 
-	for _, row := range arr {
-		for _, col := range row {
-			fmt.Printf("%d ", col)
-		}
-		fmt.Println()
-	}
-	fmt.Println("=================")
+	// for _, row := range arr {
+	// 	for _, col := range row {
+	// 		fmt.Printf("%d ", col)
+	// 	}
+	// 	fmt.Println()
+	// }
+	// fmt.Println("=================")
 
 	max := 1
 	maxrow, maxcol := 0, 0
@@ -85,13 +81,14 @@ func LongestPalindromicSubstring(s string) string {
 	}
 
 	// this is for drawing the board
-	for _, row := range arr {
-		for _, col := range row {
-			fmt.Printf("%d ", col)
-		}
-		fmt.Println()
-	}
+	// for _, row := range arr {
+	// 	for _, col := range row {
+	// 		fmt.Printf("%d ", col)
+	// 	}
+	// 	fmt.Println()
+	// }
 
-	fmt.Printf("maxrow: %d | maxcol: %d", maxrow, maxcol)
+	// fmt.Printf("maxrow: %d | maxcol: %d", maxrow, maxcol)
+	// fmt.Print(s[maxrow : maxcol+1])
 	return s[maxrow : maxcol+1]
 }

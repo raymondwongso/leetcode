@@ -4,19 +4,17 @@ import (
 	"fmt"
 )
 
+// https://leetcode.com/problems/find-the-index-of-the-first-occurrence-in-a-string/
 func main() {
-	fmt.Println("https://leetcode.com/problems/find-the-index-of-the-first-occurrence-in-a-string/")
-
-	// change input for your testcases.
 	haystack := "mississippi"
 	needle := "issip"
 
 	fmt.Printf("Haystack: %+v\n", haystack)
 	fmt.Printf("Needle: %+v\n", needle)
-	fmt.Printf("First occurence index: %+v\n", StringFirstOccurence(haystack, needle))
+	fmt.Printf("First occurence index: %+v\n", stringFirstOccurence(haystack, needle))
 }
 
-func StringFirstOccurence(haystack string, needle string) int {
+func stringFirstOccurence(haystack string, needle string) int {
 	i, j := 0, 0
 	hLen, nLen := len(haystack), len(needle)
 
