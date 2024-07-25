@@ -1,6 +1,8 @@
 from collections import defaultdict
 from typing import List
 
+
+# https://leetcode.com/problems/word-search/
 class Solution:
   def default_value(self):
     return False
