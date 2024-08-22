@@ -14,6 +14,8 @@ func main() {
 // first we count the first len(p) characters. if we found 'a', we increase the tally for 'a' (index 0)
 // let arrs and arrp as the tally arrays for s and p respectively, if arrs and arrp is equal, it is anagram.
 // continue iterate for each character in s, calculating tally and comparing with arrp.
+// Time complexity: O(n) where n is the lenght of s
+// Space complexity: O(2*26) for arrs and arpp, O(n) for the result array. Ultimately O(n)
 func findAnagrams(s, p string) []int {
 	if len(s) < len(p) {
 		return []int{}
