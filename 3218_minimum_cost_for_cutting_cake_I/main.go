@@ -12,6 +12,8 @@ func main() {
 	fmt.Println(minimumCost(m, n, horizontalCut, verticalCut))
 }
 
+// time complexity: O(n)
+// space complexity: O(1)
 func minimumCost(m int, n int, horizontalCut []int, verticalCut []int) int {
 	sort.Ints(horizontalCut)
 	sort.Ints(verticalCut)
