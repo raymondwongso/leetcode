@@ -1,16 +1,15 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
 
-type ListNode struct {
-	Val  int
-	Next *ListNode
-}
+	"github.com/raymondwongso/leetcode/helper"
+)
 
 func main() {
 	m, n := 3, 5
 	nums := []int{3, 0, 2, 6, 8, 1, 7, 9, 4, 2, 5, 5, 0}
-	head := createListNode(nums)
+	head := helper.ListNodeFromSlice(nums)
 
 	res := spiralMatrix(m, n, head)
 	for i := range res {
@@ -23,7 +22,7 @@ func main() {
 
 // Time complexity: O(m*n)
 // Space complexity: O(m*n)
-func spiralMatrix(m, n int, head *ListNode) [][]int {
+func spiralMatrix(m, n int, head *helper.ListNode) [][]int {
 	res := make([][]int, m)
 	for i := range res {
 		res[i] = make([]int, n)
@@ -65,31 +64,4 @@ func spiralMatrix(m, n int, head *ListNode) [][]int {
 	}
 
 	return res
-}
-
-func createListNode(nums []int) *ListNode {
-	if len(nums) == 0 {
-		return nil
-	}
-
-	var (
-		head *ListNode
-		prev *ListNode
-	)
-	for _, n := range nums {
-		if prev == nil {
-			head = &ListNode{
-				Val: n,
-			}
-			prev = head
-			continue
-		}
-
-		prev.Next = &ListNode{
-			Val: n,
-		}
-		prev = prev.Next
-	}
-
-	return head
 }
